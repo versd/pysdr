@@ -25,7 +25,7 @@ Terwijl de gegeven Python voorbeelden ook onder Windows, Mac en Linux zouden moe
 4. Download de `Ubuntu 22 Desktop .iso <https://ubuntu.com/download/desktop>`_
 5. Start de VM. Kies het gedownloade .iso bestand als installatiemedium. Kies “install ubuntu”, met de standaard opties en klik op "continue" bij het venster wat je waarschuwt over de veranderingen. Kies een naam/wachtwoord en wacht op de VM om te installeren. Wanneer de installatie klaar is zal de VM herstarten. Schakel na de herstart de VM uit.
 6. Ga naar de VM instellingen (het tandwieltje).
-7. Onder system > processor > kies tenminste 3 processors. Als je een discrete video kaart hebt dan kun je meer videogeheugen toekennen onder display > video memory.
+7. Onder system > processor > kies tenminste 3 processors. Als je een discrete videokaart hebt, dan kun je meer videogeheugen toekennen onder display > video memory.
 8. Start jouw VM.
 9. Ik raad ook aan om de "VM guest additions" te installeren. Ga binnen de VM naar Devices > Insert Guest Additions CD > druk op "run" in het nieuwe venster en volg de instructies. Herstart de VM. Je kunt het klembord delen met de Host via Devices > Shared Clipboard > Bidirectional.
 
@@ -33,9 +33,11 @@ PlutoSDR verbinden
 ###################
 
 1. Drivers installeren
+   
  A. Voor MacOS, onder systeem voorkeuren, zet "kernel extensions" aan. Installeer vervolgens HoRNDIS (Misschien moet je herstarten).
  B. Voor Windows kun je deze driver installeren: https://github.com/analogdevicesinc/plutosdr-m2k-drivers-win/releases/download/v0.7/PlutoSDR-M2k-USB-Drivers.exe
  C. Voor Linux zou je niets speciaals hoeven te doen.
+
 2. Plug je Pluto in de host machine via USB. Gebruik de middelste usb poort van de Pluto want de andere is alleen voor voeding. Na het inpluggen van de Pluto wordt er een virtuele netwerkkaart aangemaakt, het verschijnt als een USB ethernet adapter.
 3. Open jouw favoriete tool op de host machine (niet de VM) en ping 192.168.2.1. Zorg er eerst voor dat dit werkt voordat je verder gaat.
 4. Open een nieuwe terminal binnen de VM

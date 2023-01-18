@@ -18,10 +18,10 @@ arrowstyle = '<->'
 ax.text(T / 4 - 0.02, 0.4, 'Amplitude', color='r')
 ax.annotate(text='', xy=(T / 4 + phi, 0), xytext=(T / 4 + phi, 1), arrowprops=dict(color='red', arrowstyle=arrowstyle))  # amplitude
 
-ax.text(T / 2 + 0.02, -0.2, 'Period   (1/Frequency)', color='r')
+ax.text(T / 2 - 0.02, -0.2, 'Periodetijd         (1/Frequentie)', color='r')
 ax.annotate(text='', xy=(phi, -0.05), xytext=(T + phi, -0.05), arrowprops=dict(color='red', arrowstyle=arrowstyle))
 
-ax.text(0.01, 0.15, 'Phase', color='r')
+ax.text(0.01, 0.15, 'Fase', color='r')
 ax.annotate(text='', xy=(0, 0.05), xytext=(phi, 0.05), arrowprops=dict(color='red', arrowstyle=arrowstyle))
 
 # set the x-spine (see below for more info on `set_position`)
