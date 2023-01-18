@@ -4,31 +4,32 @@
 Multipath Fading
 #######################
 
-In this chapter we introduce multipath, a propagation phenomenon that results in signals reaching the receiver by two or more paths, which we experience in real-world wireless systems.  So far we have only discussed the "AWGN Channel", i.e., a model for a wireless channel where the signal is simply added to noise, which really only applies to signals over a cable and some satellite communications systems. 
+In dit hoofdstuk gaan we multipath behandelen, dit is een fenomeen bij draadloze systemen waarbij signalen de ontvanger via meerdere wegen bereiken.
+Voor zover hebben we alleen "AWGN" kanalen behandeld; een kanaalmodel waaraan ruis wordt toegevoegd. Dat model is alleen goed voor signalen die over kabels lopen of via sommige satellieten.
 
 *************************
 Multipath
 *************************
 
-All realistic wireless channels include many "reflectors", given that RF signals bounce.  Any object between or near the transmitter (Tx) or receiver (Rx) can cause additional paths the signal travels along.  Each path experiences a different phase shift (delay) and attenuation (amplitude scaling).  At the receiver, all of the paths add up.  They can add up constructively, destructively, or a mix of both.  We call this concept of multiple signal paths "multipath".  There is the Line-of-Sight (LOS) path, and then all other paths.  In the example below, we show the LOS path and a single non-LOS path:
+Elk realistisch draadloze kanaal bevat meerdere "reflectors" waarin RF signalen gereflecteerd kunnen worden. Elke object dat tussen de zender (Tx) en ontvanger (Rx) staat kan voor extra wegen zorgen waarover het signaal reist. Het signaal ervaart via elke weg een andere faseverschuiving (vetraging) en demping (vermindering van ampltude). All deze extra signalen worden bij de ontvanger opgeteld. Ze kunnen constructief of destructief worden samengevoegd, of beide. Dit concept waarin signalen meerdere wegen vinden wordt "multipath" genoemd. Er is een directe weg via de zichtlijn (line-of-sight: LOS) en dan zijn er alle andere signalen. In het voorbeeld wat hieronder staat laten we de LOS weg zien en een enkele andere weg:
 
-.. image:: ../_images/multipath.svg
+.. image:: images/multipath.svg
    :align: center 
-   :target: ../_images/multipath.svg
+   :target: images/multipath.svg
 
-Destructive interference can happen if you get unlucky with how the paths sum together.  Consider the example above with just two paths.  Depending on the frequency and the exact distance of the paths, the two paths can be received 180 degrees out of phase at roughly the same amplitude, causing them to null out each other (depicted below).  You may have learned about constructive and destructive interference in physics class.  In wireless systems when the paths destructively combine, we call this interference "deep fade" because our signal briefly disappears.
+Destructieve interferentie vindt plaats wanneer de signalen ongelukkig optellen. Neem het voorbeeld van hierboven met slechts twee wegen. Afhankelijk van de frequentie en afstand is het mogelijk dat de twee wegen 180 graden uit fase lopen en bijna dezelfde amplitude hebben. Dit zou erin resulteren dat de twee signalen elkaar teniet doen (zoals hieronder weergegeven). Misschien ben je deze constructieve en destructieve interferentie in de natuurkundelessen tegengekomen. Wanneer signalen destructief samenkomen noemen we dit "deep fade" in draadloze systemen, omdat het signaal eventjes verdwijnt.
 
 .. image:: ../_images/destructive_interference.svg
    :align: center 
    :target: ../_images/destructive_interference.svg
 
-Paths can also add up constructively, causing a strong signal to be received.  Each path has a different phase shift and amplitude, which we can visualize on a plot in the time domain called a "power delay profile":
+Signalen kunnen ook constructief optellen waardoor een extra sterk signaal wordt ontvangen. Elke weg resulteert in een andere fasedraaing en demping wat we in het tijddomein kunnen weergeven als een "vermogensvertragingprofiel" (Engels: power delay profile):
 
-.. image:: ../_images/multipath2.svg
+.. image:: images/multipath2.svg
    :align: center 
-   :target: ../_images/multipath2.svg
+   :target: images/multipath2.svg
 
-The first path, the one closest to the y-axis, will always be the LOS path (assuming there is one) because there's no way for any other path to reach the receiver faster than the LOS path.  Typically the magnitude will decrease as the delay increases, since a path that took longer to show up at the receiver will have traveled further.
+De eerste weg, dichtbij de y-as, zal altijd via de zichtlijn lopen (als er een is), want op geen manier kan een signaal via een andere weg sneller aankomen. Over het algemeen zal een later signaal een kleinere amplitude hebben omdat dat signaal een langere weg heeft afgelegd.
 
 *************************
 Fading
@@ -118,9 +119,9 @@ We also choose how many sinusoids to simulate, and there's no right answer becau
 
 If you are intending to use this channel model as part of a larger simulation, you would simply multiply the received signal by the complex number :code:`z`, representing flat fading.   The value :code:`z` would then update every time step.  This means all frequency components of the signal experience the same channel at any given moment in time, so you would **not** be simulating frequency selective fading, that requires a multi-tap channel impulse response which we will not get into in this chapter.  If we look at the magnitude of :code:`z`, we can see the Rayleigh fading over time:
 
-.. image:: ../_images/rayleigh.svg
+.. image:: images/rayleigh.svg
    :align: center 
-   :target: ../_images/rayleigh.svg
+   :target: images/rayleigh.svg
 
 Note the deep fades that occur briefly, as well as the small fraction of time where the channel is actually performing better than if there was no fading at all.  
 
